@@ -17,7 +17,7 @@ class PayScreen extends StatelessWidget {
         ),
         body: InAppWebView(
           initialUrlRequest: URLRequest(
-            url: Uri.parse(
+            url: WebUri(
                 "${DOMAIN_API_CUSTOMER}customer/${StoreInfo().getCustomerStoreCode()}/purchase/pay/$orderCode"),
           ),
         ));
