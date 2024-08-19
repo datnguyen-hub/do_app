@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_image_compress/flutter_image_compress.dart';
+import 'package:get/get.dart';
 import 'package:multi_image_picker2/multi_image_picker2.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
@@ -42,7 +43,7 @@ class ImageUtils {
     return null;
   }
 
-  static Future<File?> getImageCompress(File file,
+  static Future<XFile?> getImageCompress(XFile file,
       {int quality = 20, int minHeight = 1024, int minWidth = 1024}) async {
     var path = file.path;
     final dir = await path_provider.getTemporaryDirectory();

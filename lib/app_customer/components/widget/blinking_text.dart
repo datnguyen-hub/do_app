@@ -193,7 +193,7 @@ class BlinkTextState extends State<BlinkText>
     if (widget.style != null) {
       style = defaultTextStyle.style.merge(widget.style!);
     }
-    if (MediaQuery.boldTextOverride(context))
+    if (MediaQuery.boldTextOf(context))
       style = style.merge(const TextStyle(fontWeight: FontWeight.bold));
 
     return AnimatedBuilder(

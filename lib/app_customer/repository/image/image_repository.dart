@@ -1,11 +1,12 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:sahashop_customer/app_customer/remote/customer_service_manager.dart';
 import 'package:sahashop_customer/app_customer/utils/store_info.dart';
 import '../handle_error.dart';
 
 class ImageRepository {
-  Future<String?> uploadImage(File? image) async {
+  Future<String?> uploadImage(XFile? image) async {
     try {
       var res = await CustomerServiceManager().service!.uploadImage(
         StoreInfo().getCustomerStoreCode(),

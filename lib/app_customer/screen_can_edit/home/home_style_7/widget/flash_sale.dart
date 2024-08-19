@@ -25,7 +25,12 @@ class FlashSale extends StatefulWidget {
 class _FlashSaleState extends State<FlashSale>
     with SingleTickerProviderStateMixin {
   DataAppCustomerController dataAppCustomerController = Get.find();
-  CustomTimerController controllerTimer = CustomTimerController();
+  CustomTimerController controllerTimer = CustomTimerController( begin:  widget.layoutHome.list!
+                        .cast<Product>()
+                        .first
+                        .productDiscount!
+                        .endTime!
+                        .difference(DateTime.now()), end: Duration());
 
   @override
   void initState() {
@@ -104,13 +109,7 @@ class _FlashSaleState extends State<FlashSale>
                     null)
                   CustomTimer(
                     controller: controllerTimer,
-                    begin: widget.layoutHome.list!
-                        .cast<Product>()
-                        .first
-                        .productDiscount!
-                        .endTime!
-                        .difference(DateTime.now()),
-                    end: Duration(),
+               
                     builder: (time) {
                       return Row(
                         children: [

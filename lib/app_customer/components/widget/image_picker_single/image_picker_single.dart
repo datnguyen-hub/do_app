@@ -192,7 +192,7 @@ class ImagePickerSingleController extends GetxController {
     pathImage("");
   }
 
-  Future<String?> upLogo(File? file) async {
+  Future<String?> upLogo(XFile? file) async {
     isLoadingAdd.value = true;
     try {
       var link =

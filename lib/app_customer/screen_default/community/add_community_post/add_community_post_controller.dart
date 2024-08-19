@@ -14,7 +14,7 @@ class AddCommunityPostController extends GetxController {
   var listCommunityPost = RxList<CommunityPost>();
   var contentCommunityPost = new TextEditingController();
   var communityPostRequest = CommunityPost().obs;
-  var listImageFile = RxList<File>();
+  var listImageFile = RxList<XFile>();
   var listImageAsset = RxList<Asset>();
   var collapse = true.obs;
   var maxLine = 0.obs;
@@ -120,7 +120,7 @@ class AddCommunityPostController extends GetxController {
   }
 
   Future<void> uploadImageData(
-      {required File file, required Function onOK}) async {
+      {required XFile file, required Function onOK}) async {
     try {
       var fileUp = await ImageUtils.getImageCompress(file, quality: 15);
       var link =
@@ -138,6 +138,6 @@ class AddCommunityPostController extends GetxController {
   Future<void> assetToFile(XFile xFile) async {
    //var fileUp = await ImageUtils.getImageFileFromAsset(xFile);
    //if (fileUp != null) 
-    listImageFile.add(File(xFile.path));
+    listImageFile.add(XFile(xFile.path));
   }
 }

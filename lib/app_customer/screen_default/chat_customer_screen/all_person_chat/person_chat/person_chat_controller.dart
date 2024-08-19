@@ -292,7 +292,7 @@ class PersonChatController extends GetxController {
       {required int indexImage, required Function onOK}) async {
     try {
       var fileUp = await ImageUtils.getImageCompress(
-          File(dataImages[indexImage].file!.path),
+          XFile(dataImages[indexImage].file!.path),
           minWidth: 700,
           minHeight: 512,
           quality: 15);

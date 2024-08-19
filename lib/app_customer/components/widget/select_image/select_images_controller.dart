@@ -100,7 +100,7 @@ class SelectImageController extends GetxController {
       dataImages.refresh();
 
       var link = await CustomerRepositoryManager.imageRepository
-          .uploadImage(File(dataImages[indexImage].file!.path));
+          .uploadImage(XFile(dataImages[indexImage].file!.path));
 
       dataImages[indexImage].linkImage = link;
       dataImages[indexImage].errorUpload = false;

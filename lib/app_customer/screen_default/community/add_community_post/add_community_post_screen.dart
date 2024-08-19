@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:sahashop_customer/app_customer/components/empty/saha_empty_avatar.dart';
 import 'package:sahashop_customer/app_customer/components/loading/loading_full_screen.dart';
 import 'package:sahashop_customer/app_customer/components/loading/loading_widget.dart';
@@ -253,7 +254,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                 ),
                 Expanded(
                   child: SingleChildScrollView(
-                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                    keyboardDismissBehavior:
+                        ScrollViewKeyboardDismissBehavior.onDrag,
                     child: Obx(() {
                       return (widget
                                       .addCommunityPostController
@@ -352,7 +354,6 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                     widget.addCommunityPostController
                                         .communityPostRequest
                                         .refresh();
-
                                   },
                                 ),
                                 SizedBox(
@@ -415,57 +416,56 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                         ),
                                       ),
                                 TextField(
-                                  controller: widget
-                                      .addCommunityPostController
+                                  controller: widget.addCommunityPostController
                                       .contentCommunityPost,
                                   textAlign: widget.addCommunityPostController
-                                      .listImageFile.isEmpty &&
-                                      widget
-                                          .addCommunityPostController
-                                          .communityPostRequest
-                                          .value
-                                          .backgroundColor !=
-                                          ''
+                                              .listImageFile.isEmpty &&
+                                          widget
+                                                  .addCommunityPostController
+                                                  .communityPostRequest
+                                                  .value
+                                                  .backgroundColor !=
+                                              ''
                                       ? TextAlign.center
                                       : TextAlign.left,
                                   style: TextStyle(
                                     color: widget
-                                        .addCommunityPostController
-                                        .communityPostRequest
-                                        .value
-                                        .backgroundColor !=
-                                        '' &&
-                                        widget.addCommunityPostController
-                                            .maxLine <=
-                                            7 &&
-                                        widget.addCommunityPostController
-                                            .listImageFile.isEmpty
+                                                    .addCommunityPostController
+                                                    .communityPostRequest
+                                                    .value
+                                                    .backgroundColor !=
+                                                '' &&
+                                            widget.addCommunityPostController
+                                                    .maxLine <=
+                                                7 &&
+                                            widget.addCommunityPostController
+                                                .listImageFile.isEmpty
                                         ? Colors.white
                                         : Colors.black,
                                     fontSize: widget
-                                        .addCommunityPostController
-                                        .communityPostRequest
-                                        .value
-                                        .backgroundColor !=
-                                        '' &&
-                                        widget.addCommunityPostController
-                                            .maxLine <=
-                                            7 &&
-                                        widget.addCommunityPostController
-                                            .listImageFile.isEmpty
+                                                    .addCommunityPostController
+                                                    .communityPostRequest
+                                                    .value
+                                                    .backgroundColor !=
+                                                '' &&
+                                            widget.addCommunityPostController
+                                                    .maxLine <=
+                                                7 &&
+                                            widget.addCommunityPostController
+                                                .listImageFile.isEmpty
                                         ? 25
                                         : 14,
                                     fontWeight: widget
-                                        .addCommunityPostController
-                                        .communityPostRequest
-                                        .value
-                                        .backgroundColor !=
-                                        '' &&
-                                        widget.addCommunityPostController
-                                            .maxLine <=
-                                            7 &&
-                                        widget.addCommunityPostController
-                                            .listImageFile.isEmpty
+                                                    .addCommunityPostController
+                                                    .communityPostRequest
+                                                    .value
+                                                    .backgroundColor !=
+                                                '' &&
+                                            widget.addCommunityPostController
+                                                    .maxLine <=
+                                                7 &&
+                                            widget.addCommunityPostController
+                                                .listImageFile.isEmpty
                                         ? FontWeight.bold
                                         : null,
                                   ),
@@ -475,18 +475,16 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                     hintStyle: TextStyle(
                                       fontSize: 25,
                                       color: widget
-                                          .addCommunityPostController
-                                          .communityPostRequest
-                                          .value
-                                          .backgroundColor !=
-                                          '' &&
-                                          widget.addCommunityPostController
-                                              .maxLine <=
-                                              7 &&
-                                          widget
-                                              .addCommunityPostController
-                                              .listImageFile
-                                              .isEmpty
+                                                      .addCommunityPostController
+                                                      .communityPostRequest
+                                                      .value
+                                                      .backgroundColor !=
+                                                  '' &&
+                                              widget.addCommunityPostController
+                                                      .maxLine <=
+                                                  7 &&
+                                              widget.addCommunityPostController
+                                                  .listImageFile.isEmpty
                                           ? Colors.white
                                           : Colors.black,
                                     ),
@@ -499,23 +497,18 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                     ),
                                   ),
                                   onChanged: (v) {
-                                    widget
-                                        .addCommunityPostController
-                                        .communityPostRequest
-                                        .value
-                                        .content = v;
+                                    widget.addCommunityPostController
+                                        .communityPostRequest.value.content = v;
                                     print(v.length);
                                     widget.addCommunityPostController.maxLine
-                                        .value =
-                                        '\n'.allMatches(v).length + 1;
-                                   if (v.length >= 180) {
-                                     widget.addCommunityPostController.maxLine
-                                         .value = 8;
-                                   }
+                                        .value = '\n'.allMatches(v).length + 1;
+                                    if (v.length >= 180) {
+                                      widget.addCommunityPostController.maxLine
+                                          .value = 8;
+                                    }
                                     widget.addCommunityPostController
                                         .communityPostRequest
                                         .refresh();
-
                                   },
                                 )
                               ],
@@ -822,7 +815,7 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                 );
               },
               child: Image.file(
-                widget.addCommunityPostController.listImageFile[0],
+                File(widget.addCommunityPostController.listImageFile[0].path),
                 fit: BoxFit.fitWidth,
               ),
             )
@@ -846,7 +839,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                           );
                         },
                         child: Image.file(
-                          widget.addCommunityPostController.listImageFile[0],
+                          File(widget
+                              .addCommunityPostController.listImageFile[0].path),
                           fit: BoxFit.cover,
                           width: Get.width / 2,
                           height: Get.width / 2,
@@ -873,7 +867,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                           );
                         },
                         child: Image.file(
-                          widget.addCommunityPostController.listImageFile[1],
+                          File(widget
+                              .addCommunityPostController.listImageFile[1].path),
                           fit: BoxFit.cover,
                           width: Get.width / 2,
                           height: Get.width / 2,
@@ -902,7 +897,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                             );
                           },
                           child: Image.file(
-                            widget.addCommunityPostController.listImageFile[0],
+                            File(widget
+                              .addCommunityPostController.listImageFile[0].path),
                             fit: BoxFit.fitHeight,
                             height: Get.width + 3,
                             width: Get.width / 2,
@@ -915,8 +911,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                           child: Column(
                             children: [
                               Image.file(
-                                widget.addCommunityPostController
-                                    .listImageFile[1],
+                                File(widget
+                              .addCommunityPostController.listImageFile[1].path),
                                 width: Get.width / 2,
                                 height: Get.width / 2,
                                 fit: BoxFit.cover,
@@ -943,8 +939,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                   );
                                 },
                                 child: Image.file(
-                                  widget.addCommunityPostController
-                                      .listImageFile[2],
+                                  File(widget
+                              .addCommunityPostController.listImageFile[2].path),
                                   width: Get.width / 2,
                                   height: Get.width / 2,
                                   fit: BoxFit.cover,
@@ -984,8 +980,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                         );
                                       },
                                       child: Image.file(
-                                        widget.addCommunityPostController
-                                            .listImageFile[0],
+                                        File(widget
+                              .addCommunityPostController.listImageFile[0].path),
                                         width: Get.width / 2,
                                         height: Get.width / 2,
                                         fit: BoxFit.cover,
@@ -1013,8 +1009,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                         );
                                       },
                                       child: Image.file(
-                                        widget.addCommunityPostController
-                                            .listImageFile[2],
+                                       File(widget
+                              .addCommunityPostController.listImageFile[2].path),
                                         width: Get.width / 2,
                                         height: Get.width / 2,
                                         fit: BoxFit.cover,
@@ -1049,8 +1045,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                         );
                                       },
                                       child: Image.file(
-                                        widget.addCommunityPostController
-                                            .listImageFile[1],
+                                        File(widget
+                              .addCommunityPostController.listImageFile[1].path),
                                         width: Get.width / 2,
                                         height: Get.width / 2,
                                         fit: BoxFit.cover,
@@ -1078,8 +1074,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                         );
                                       },
                                       child: Image.file(
-                                        widget.addCommunityPostController
-                                            .listImageFile[3],
+                                       File(widget
+                              .addCommunityPostController.listImageFile[3].path),
                                         width: Get.width / 2,
                                         height: Get.width / 2,
                                         fit: BoxFit.cover,
@@ -1123,8 +1119,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                             );
                                           },
                                           child: Image.file(
-                                            widget.addCommunityPostController
-                                                .listImageFile[0],
+                                            File(widget
+                              .addCommunityPostController.listImageFile[0].path),
                                             width: Get.width / 2,
                                             height: Get.width / 2,
                                             fit: BoxFit.cover,
@@ -1154,8 +1150,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                             );
                                           },
                                           child: Image.file(
-                                            widget.addCommunityPostController
-                                                .listImageFile[2],
+                                            File(widget
+                              .addCommunityPostController.listImageFile[2].path),
                                             width: Get.width / 2,
                                             height: Get.width / 2,
                                             fit: BoxFit.cover,
@@ -1192,8 +1188,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                             );
                                           },
                                           child: Image.file(
-                                            widget.addCommunityPostController
-                                                .listImageFile[1],
+                                            File(widget
+                              .addCommunityPostController.listImageFile[1].path),
                                             width: Get.width / 2,
                                             height: Get.width / 2,
                                             fit: BoxFit.cover,
@@ -1205,8 +1201,8 @@ class _AddCommunityPostSceenState extends State<AddCommunityPostSceen> {
                                         Stack(
                                           children: [
                                             Image.file(
-                                              widget.addCommunityPostController
-                                                  .listImageFile[3],
+                                              File(widget
+                              .addCommunityPostController.listImageFile[3].path),
                                               width: Get.width / 2,
                                               height: Get.width / 2,
                                               fit: BoxFit.cover,

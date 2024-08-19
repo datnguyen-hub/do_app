@@ -269,7 +269,7 @@ class _BusinessChartState extends State<BusinessChart> {
         // Chart title
         onTrackballPositionChanging: (TrackballArgs args) {
           args.chartPointInfo.header =
-              DateFormat('H:m').format(args.chartPointInfo.chartDataPoint!.x);
+              DateFormat('H:m').format(args.chartPointInfo.chartPoint!.x);
         },
         title: ChartTitle(
             text:

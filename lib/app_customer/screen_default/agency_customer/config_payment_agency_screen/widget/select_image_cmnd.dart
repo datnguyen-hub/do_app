@@ -255,7 +255,7 @@ class SelectCmndImageController extends GetxController {
     pathImage.value = "";
   }
 
-  Future<String?> upLogo(File? file) async {
+  Future<String?> upLogo(XFile? file) async {
     isLoadingAdd.value = true;
     try {
       var link =

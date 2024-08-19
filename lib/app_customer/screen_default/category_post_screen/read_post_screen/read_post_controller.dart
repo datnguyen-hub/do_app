@@ -48,17 +48,17 @@ class PostController extends GetxController {
     //     sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
 
        final cache = DefaultCacheManager(); // Gives a Singleton instance
-    var imagePaths = <String>[];
+    var imagePaths = <XFile>[];
     for (var image in (listUrl ?? [])) {
       final file = await cache.getSingleFile(image);
 
-      imagePaths.add(file.path);
+      imagePaths.add(XFile(file.path) );
     }
     // await  Share.share(
     //     "Link mua hàng: ${dataAppCustomerController.badge.value.domain == null || dataAppCustomerController.badge.value.domain == "" ? "${StoreInfo().getCustomerStoreCode()}.myiki.vn" : dataAppCustomerController.badge.value.domain}/san-pham/id-${productShow.id}?cowc_id=${dataAppCustomerController.infoCustomer.value.id}\n\n${productShow.contentForCollaborator ?? ""}",
     //     subject: "",
     //     sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
-    await Share.shareFiles(imagePaths,text:"${dataAppCustomerController.badge.value.domain == null || dataAppCustomerController.badge.value.domain == "" ? "${StoreInfo().getCustomerStoreCode()}.myiki.vn" : dataAppCustomerController.badge.value.domain}/tin-tuc/id-${postShow.value.id}?cowc_id=${dataAppCustomerController.infoCustomer.value.id}");
+    await Share.shareXFiles(imagePaths,text:"${dataAppCustomerController.badge.value.domain == null || dataAppCustomerController.badge.value.domain == "" ? "${StoreInfo().getCustomerStoreCode()}.myiki.vn" : dataAppCustomerController.badge.value.domain}/tin-tuc/id-${postShow.value.id}?cowc_id=${dataAppCustomerController.infoCustomer.value.id}");
   }
 
   Future<void> getDetailPost() async {

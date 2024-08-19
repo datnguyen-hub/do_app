@@ -1,6 +1,8 @@
 import 'package:sahashop_customer/app_customer/const/const_database_shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../const/const_database_shared_preferences.dart';
+
 class StoreInfo {
   static final StoreInfo _singleton = StoreInfo._internal();
 

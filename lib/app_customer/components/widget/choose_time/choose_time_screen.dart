@@ -108,7 +108,7 @@ class _ChooseTimeScreenState extends State<ChooseTimeScreen>
                   style: TextStyle(
                       fontSize: 16,
                       color:
-                          Theme.of(context).primaryTextTheme.headline6!.color),
+                          Theme.of(context).primaryTextTheme.bodyMedium!.color),
                 ),
               ),
             ],

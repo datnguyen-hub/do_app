@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:sahashop_customer/app_customer/utils/store_info.dart';
 import '../remote/customer_service.dart';
 import '../remote/inteceptors/auth_interceptor.dart';
+import '../utils/store_info.dart';
 
 /// Class holds reference to Dio clients
 class CustomerServiceManager {

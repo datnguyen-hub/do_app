@@ -61,7 +61,7 @@ class _CategoryProductStyle1State extends State<CategoryProductStyle1> {
     Get.to(SearchTextFiledScreen(
       onSubmit: (text, categoryId) {
         categoryController1.textEditingControllerSearch.text = text!;
-        categoryController1.searchProduct(search: text,isRefresh: true);
+        categoryController1.searchProduct(search: text, isRefresh: true);
       },
     ));
   }
@@ -77,7 +77,7 @@ class _CategoryProductStyle1State extends State<CategoryProductStyle1> {
       onEndDrawerChanged: (v) {
         if (v == false && index == 1) {
           categoryController1.searchProduct(
-              sortBy: categoryController1.sortByCurrent,isRefresh: true);
+              sortBy: categoryController1.sortByCurrent, isRefresh: true);
           index++;
         }
       },
@@ -168,11 +168,13 @@ class _CategoryProductStyle1State extends State<CategoryProductStyle1> {
                       EasyDebounce.debounce('category_product_screen',
                           Duration(milliseconds: 500), () {
                         print(v);
-                        categoryController1.searchProduct(search: v,isRefresh: true);
+                        categoryController1.searchProduct(
+                            search: v, isRefresh: true);
                       });
                     },
                     onClose: () {
-                      categoryController1.searchProduct(search: "",isRefresh: true);
+                      categoryController1.searchProduct(
+                          search: "", isRefresh: true);
                     },
                   )),
             ),
@@ -248,7 +250,7 @@ class _CategoryProductStyle1State extends State<CategoryProductStyle1> {
   }
 
   Widget attriButeSearchItem(AttributeSearch attributeSearch) {
-     var isLoadMore =
+    var isLoadMore =
         (attributeSearch.productAttributeSearchChildren ?? []).length > 4
             ? false.obs
             : true.obs;
@@ -265,11 +267,11 @@ class _CategoryProductStyle1State extends State<CategoryProductStyle1> {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           Obx(
-            ()=> Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
+            () => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Wrap(
-                  children:  (isLoadMore == false
+                  children: (isLoadMore == false
                           ? (attributeSearch.productAttributeSearchChildren ??
                                   [])
                               .sublist(0, 4)
@@ -295,13 +297,16 @@ class _CategoryProductStyle1State extends State<CategoryProductStyle1> {
                                 shape: StadiumBorder(
                                     side: BorderSide(color: Colors.grey[300]!)),
                                 onSelected: (bool value) {
-                                  if (categoryController1.listAttributeSearchChoose
+                                  if (categoryController1
+                                      .listAttributeSearchChoose
                                       .map((e) => e.id)
                                       .contains(e.id)) {
-                                    categoryController1.listAttributeSearchChoose
+                                    categoryController1
+                                        .listAttributeSearchChoose
                                         .removeWhere((x) => x.id == e.id);
                                   } else {
-                                    categoryController1.listAttributeSearchChoose
+                                    categoryController1
+                                        .listAttributeSearchChoose
                                         .add(e);
                                   }
                                 },
@@ -310,7 +315,7 @@ class _CategoryProductStyle1State extends State<CategoryProductStyle1> {
                           ))
                       .toList(),
                 ),
-                 if ((attributeSearch.productAttributeSearchChildren ?? [])
+                if ((attributeSearch.productAttributeSearchChildren ?? [])
                         .length >
                     4)
                   TextButton(
@@ -339,10 +344,11 @@ class _CategoryProductStyle1State extends State<CategoryProductStyle1> {
                 key == "price") {
               categoryController1.searchProduct(
                   sortBy: key,
-                  descending: !categoryController1.descendingShow.value,isRefresh: true);
+                  descending: !categoryController1.descendingShow.value,
+                  isRefresh: true);
               return;
             }
-            categoryController1.searchProduct(sortBy: key,isRefresh: true);
+            categoryController1.searchProduct(sortBy: key, isRefresh: true);
           },
           child: Row(
             children: [
@@ -458,8 +464,9 @@ class _CategoryProductStyle1State extends State<CategoryProductStyle1> {
                                             .isChooseDiscountSort.value ==
                                         false) {
                                       categoryController1.searchProduct(
-                                          sortBy: categoryController1
-                                              .sortByCurrent,isRefresh: true);
+                                          sortBy:
+                                              categoryController1.sortByCurrent,
+                                          isRefresh: true);
                                     }
                                   },
                                 ),
@@ -516,7 +523,8 @@ class _CategoryProductStyle1State extends State<CategoryProductStyle1> {
           onTap: () {
             categoryController1.setCategoryCurrent(category);
 
-            categoryController1.searchProduct(idCategory: category.id,isRefresh: true);
+            categoryController1.searchProduct(
+                idCategory: category.id, isRefresh: true);
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
